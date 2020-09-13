@@ -1,0 +1,33 @@
+
+In this two application we learn how to use open system call and after open system call what opeartion we can perform on this opened system call that we learn.
+
+
+
+prototype :
+int open(filename,MODE)
+
+file name with absolute path is always good.
+Mode is which mode we want to open file to perform operation.
+
+return value of open system call is int type
+
+after opening file we can perform any operation depends on mode and access permission of file
+
+
+int write(fd, str, len);
+
+fd is first parameter and used to give access of opend file
+str : which contains string 
+len : how many bytes to write
+
+int read(fd, buff, len);
+
+fd : which pointed to opened file
+buff: in which we read data from the file
+len : bytes we are going to read
+
+
+Makefile
+
+to perform all operation with singly command we need to create makefile for our files instread of seperately compiling and running them
+

@@ -1,5 +1,5 @@
 /*
-in this program instead of using O_APPEND flag with open we used fcntl function to chage behaviour of fd and word
+in this program instead of using O_APPEND flag with open we used fcntl function to chage behaviour of fd and work
 like O_APPEND flag
 */
 #include<fcntl.h>

@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
-	write(fd, argv[2], strlen(argv[2]));	
+	ret = write(fd, argv[2], strlen(argv[2]));	
 	
 	if(ret == -1)
 	{

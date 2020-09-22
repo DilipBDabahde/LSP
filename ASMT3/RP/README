@@ -1,0 +1,90 @@
+
+
+1 :- accept directory name from user and print all file names from that	directory.
+
+to complete above tast we use some internal function such as 
+opendir(DIR *)  <---------- to open directory
+readdir(DIR *)	<----------- to read directory
+closedir(DIR *) <----------- to close opened directory
+
+but while reading directory we have to display directory entries 
+
+input:  .   Current directory
+
+output:
+.
+|-- README
+|-- README~
+|-- a.out
+|-- displayAllFiles.c
+|-- displayAllFiles.c~
+|-- makefile
+|-- makefile~
+`-- myexe1
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+2 :- accept directory name from user and print all file names and its types from that directory
+
+same functions we use to open dir and other directory and file related operation required some extra fucntion 
+such as stat(filename, struct stat *)
+by using stat fuction, it gets first paramter as file name second is stat struct pointer which point to file struct 
+to get all information about file such as file inode, file type etc.
+
+
+./myexe2 .
+myexe1					Regular file
+makefile				Regular file
+README					Regular file
+makefile~				Regular file
+displayFilesWithTypes.c	Regular file
+a.out					Regular file
+myexe2					Regular file
+displayAllFiles.c		Regular file
+displayAllFiles.c~		Regular file
+README~					Regular file
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+3 :- accept directory name from user and print name of such a file	having largest size.
+
+to solve this problem we need to use stat function and we pass this function empty object of "struct dirent "
+it gets back with file info, then we need to use st_size field of the file, check everytime in loop if current file size 
+is big then prev one then store current file size into size variable do it till last entry of file in directory.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+4 :- accept two file names from user and copy the contents of an existing file into newly created file
+
+to complete this task, first need to accept two files names first one should be existing file from which we first 
+read data and copy to newly created file
+
+open first exsting file in read mode
+if successfully done then
+create new file 
+if sucessfully done then 
+open new file with write and append mode
+then use both opened file discritor to read and write data
+in loop perform read and write job
+to read data pass addresss of empty buff
+to write data provide filled buff 
+after read/write they return no. of read/write bytes 
+do it continue in loop till whole data read 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+5 :- accept directory name and file name from user and check whether that file is present in that directory or not.
+
+to do this open first directory in which we want to search file usiing opendir(DIR *)
+once done it
+go to readdir(DIR *) this function return address of "struct dirent " to hold addrss we need same type pointer 
+create pointer of struct dirent and point to struct dirent member named as "d_name" 
+compare this d_name with our file name if we foound then stop going ahead
+or go to till last entry and compare file entry of structure and our file name
+
+if it found then display found it else not existing
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+6 :- 

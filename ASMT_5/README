@@ -1,0 +1,34 @@
+1 : create employee field structure and write information of employee to file
+	to perfome operation on this task we have to create structure with neccessary field and take file name via cli
+	make object variable to structure to initialize each memebr of structure. take input from user and initialize all 
+	members of structure. now create file and open it after that write all data of object into file after successful
+	write close file and free allocated resources.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+2 : accept file name and read Employee info and dispaly
+	in this application we have to read file which is created into first applciation in which employee data exist.
+	take that file name via cli and open it to read and fill all data into buff array, after complete data read show to 
+	on creen.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+3 : accept directory name from user and write information of all regular file in newfile
+	and then read the contents from that file.
+	
+	to complete this task it requires existing dir name and file name, first open targeted directory and read eachfile 
+	inode structure and write all info about each entry of given directory, to newfile and display metadata about file
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+4 : accpet dirname and fileinfo  file  and write all files inode structure data of file into  fileinfo file 
+	all existing file in dirname get their statistics and write it to fileinfo file 
+	to do this open target director and file
+	travel into dir with readdir fucntion pass file name to stat function and get back filled obj.
+	use that obj to get whole file statistics and write that statistics into sprintf keep it for some time of heap 
+	once it done then make write system call pass it address of heap area and write whole info stored in heap
+	do it till end of last file
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+

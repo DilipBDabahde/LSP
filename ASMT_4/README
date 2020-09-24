@@ -1,0 +1,44 @@
+
+
+1 :- IO redirection program in this program we created two int type values, this variable takes input from scanf function
+	 but we pass that input with file get return back output of given input
+	 we perform sum of passed to integrale values and instead of printing of console move that input into output.txt file
+	 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+2 : accept directory name from user and create new directory of that	name.
+
+	to create directory we use #include<sys/stat.h> header file we cantains necessary contents to create new directory
+	and by using mkdir function call new directory gets creaed into current directory in which dir our process
+	is running.
+	while creating dir parameter should be first Dirname and permissions
+	int mkdir(const char Dirname, Permission to get access );
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+3 :	accept two file names from user and check whether contents of  that two files are equal are not.
+	to check data of two files first it request existing files to oopen and  once both files gets opeend successfully
+	then read data from both files in buffer from outer loop  and if size of red bytes of both buff is same then
+	compare char by char of both buff in inner loop, while doing this if we found missmatch char then break inner
+	loop and display both are not same else both are same.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+4. accept directory name from user and copy first 10 bytes from all regular files into newly created file named as demo.
+   to complete this task we need a directorya and emptry file in which we write 10 bytes of each file after opening dir
+   after getting dir access then we read one by one each directory entry and open that file entry with open system call
+   read 10 bytes from each file which are opened successfully and keep it into buff and make write system call pass that 
+   buff to write system call and get written data data into file do it with all regular files which are in directory
+   entries.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+5 : accept file name and position from user and read 20 bytes fromthat position.
+	to get done this job we need an existing regular file and open it in read mode
+	once it get open. then make use of lseek to perform random file access so after opening file
+	our fd was set to 0 position it need to set as per requirement syntax is lseek(fd, expeced postion, SEEK_SET)
+	this call will take fd to expected position and start reading from that position to ahead and at last display red 
+	data on screen.
+	
+   
+	

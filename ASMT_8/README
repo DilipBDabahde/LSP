@@ -1,0 +1,79 @@
+1:  Write a program which creates new process which is responsible to write all file names which
+    are present on desktop in demo.txt file which should be created newly.
+    
+    //input : $./exe  dirname  filename
+    
+    to solve this  we create one child process in our application once child process is gets created
+    then we open given directory name once successfully opened directory we read each entries of this directory.
+    each directory contains filename and file corrosponding inode. 
+    after successfully opened directory read each entry and write name of file into our created file till end of 
+    directory entries
+ -----------------------------------------------------------------------------------------------------------------------
+ 
+ 2. Write a program which creates two processess. 
+ 	Process 1 count number of capital characters from demo.txt file. 
+ 	And process 2 count number of capital characters from hello.txt file. 
+ 	Both the processess writes its count in count.txt file.
+ 	
+ 	in this applicate accept 3 files name from user and first two files open to read and 3rd we create at run time. 
+ 	we now create first child process and do {we open demo.txt to read its capital char and write count of capital chars 	 into count.txt }
+ 	then create second child process in which we open hello.txt file to read all small chars count and write that into 
+ 	count.txt file
+ 	
+ 	once all caps and small letters count found each file then write them into count.txt 
+ ----------------------------------------------------------------------------------------------------------------------
+
+3. Write a program which creates one process which accept one directory name. That
+   process will rename all names of regular files with sequential number. (1.txt, 2.txt,3.txt, 4.txt etc).
+
+	we first create process in this application and open dir read each entry and rename that entry with intval.txt in 
+	ascending format. 
+
+ ----------------------------------------------------------------------------------------------------------------------
+ 
+4. Write a program which is used to print priority of current process.
+
+   To complete this application we include required library <sys/resource.h> from this header file we gets access of 
+   prototype to call. getpriority(which, who) is function wwhich has two argument which=pid, who = 0 | 1 | 2
+   
+   PRIO_PROCESS = 0
+   PRIO_PGRP    = 1
+   PRIO_USER	= 2
+   
+   this above 3 values can use inplace who and first argument ask for process id
+   this getpriority() function call return process priority/nice value
+ -----------------------------------------------------------------------------------------------------------------------
+ 
+5.Write a program which is used to increase the priority by 5.
+	
+	in this application we change process priority but to know current process priority we use nice(0) call which return
+	current priority of our processs. 
+	function prototypes : int newval = setpriority(PRIO_PROCESS, pid, new_nice_value);
+	this call return 0 on success or -1 on error
+	to change priority of process call setpriority it helps to set value of process
+	then finaly print with printf call get now updated nice value and print
+ ----------------------------------------------------------------------------------------------------------------------
+ 
+ 6. Write a program which is used to display Environment of our running process.
+ 	
+ 	this application use **environ pointer to get access all environment vars for our application.  to display all 
+ 	vars iterate in loop to display, in main function we create (pointer to pointer) like **args = environ 
+ 	and args gets address of environ var to pointer, by using args we display are vars in loop till args reached to NULL
+ ----------------------------------------------------------------------------------------------------------------------
+ 
+ 7. Write a program which is used to pring home directory and login user name.
+ 
+ 	this application accept two argument from user such as HOME LOGNAME this are two vars in our environment list
+ 	to display its corrosponding value. we have to form applicatin in this way.
+ 	
+ 	in main function two input argumets are ther argc & *argv[]  
+ 	by using length of argc we display are values of argv[]
+ 	
+ 	in loop compare each argv element with evironment variables.
+ 	while reading all string of var we read it till = operation in string and store, all read chars we fill into empty
+ 	arr and compare that arr with argv[] elements in loop, do it till all end all elements of enviroment.
+
+
+	
+ 
+ 	

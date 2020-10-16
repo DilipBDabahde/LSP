@@ -1,0 +1,2 @@
+In file [- anil -] total small letters are : 6
+In file [- dilip -] total capital letters are : 6

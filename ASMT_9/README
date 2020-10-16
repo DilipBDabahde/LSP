@@ -1,0 +1,45 @@
+1. Write a program which is used to create simple thread by using pthread library.
+	
+	to complete this application one new thread create in main thread, here require new library named as pthread.h 
+	in this library we refer some function prototypes names as
+	
+	int pthread_create(&t1, attr, (void*)fun_name, (void*)args)
+	in this function we pass some argumets to create thread 
+	
+	int pthread_join(t1, &status)
+	this call is used to wait till thread exits and return its status
+
+------------------------------------------------------------------------------------------------------------------------
+2. Write a program which creates two thread , first thread print numbers 
+   from 1 to 500 & other thread print the numbers from 500 to 1.
+   
+   in this applicattion two thread create by calling pthread_create() function two times
+   and t1 prints 1 to N  in ascending order number 
+   t2 prints N to 1 in descending order number 
+   both displaying values done in two diff functions they gets call while create thread
+   in main thread till exit from called function pthread_join() method hold status of child thread
+
+-----------------------------------------------------------------------------------------------------------------------
+
+3. Write a program which creates single thread and we have to pass
+   parameter to that thread from main thread.
+   
+   in main thread we create one array which contains string and we pass this string from main thread to child thread
+   while creating child thread last argument is created array which has string. this string we display into start_routine
+  
+-----------------------------------------------------------------------------------------------------------------------
+5. Write a program which is used to get thread id inside its thread function.
+	
+   to get thread of main we call pthread-self() which return thread id of main thread
+-----------------------------------------------------------------------------------------------------------------------
+4. Write a program which creates single thread and it accept one value from
+   user and it return some value to the caller thread.
+   
+   in main thread we create child thread then control goes to child thread where we accept integral value and return it 
+   to main thread using pthread_exit(accepted value);
+   this value display from main thread
+-----------------------------------------------------------------------------------------------------------------------
+
+
+   
+

@@ -1,0 +1,75 @@
+1. Write a program which is used to create unnamed pipe. Parent process creates new child
+   process and both the processess will communicate with each other.
+   
+   in this application we create unamed pipe using pipe(fds) system call, one pipe create then 
+   fork() sys call is used in parent process to creat child process, one it's done then parent write some data into
+   pipe using fds[1] and then clild read ddata from pipe using fds[0]
+   this way child and parent two process communicate each other.
+   
+ ----------------------------------------------------------------------------------------------------------------------
+ 
+ 2. Write a program which creates two processess and that two processess can communicate
+    with each other by using concept of shared memory.
+    
+    in this application two seperate process create and run
+    
+    first server process:
+    	in this server process we create shared memory or Open existing shared memory 
+    	by using ftok() function we get unique key for shmget() function this function return shmid for attaching 
+    	shared memory to our process address. one shared memory pages added to our process address then we write 
+    	some data to shared memory region. then wait server till client read written data of shared memory
+    	
+    second client process:
+    	in this client process instead of creating shared memory we just open it to read/write at time only one process
+    	can write into shared memory by default it follows syncronization while writting into shared memory.
+    	same way we use ftok() function to get key same paramter required as server provided
+    	then call to shmget to get same shmid to attach client process that created shared memory region.
+    	once shared memory region attached to client process then server written data client can read/write
+    	after reading data from shared memory, client write sinngle char as 'x' to notify server that
+    	client has got data from shared memory. than server waiting gets stopped.
+    	
+    	this way shared memory operation can be performed.
+ ----------------------------------------------------------------------------------------------------------------------
+
+3. Write a program which creates one child process , child process write something in
+   unamed pipe and parent process read the data from that pipe.
+   
+  for this application we create first pipe after success full createion of pipe
+  then we create child process and we used wait() sys call in parent process area till child terminate then
+  control goes to child process where we write data into pipe then exit() from child 
+  exit(0) return child process status to parent and parent read child process status
+  then parent open pipe to read data from pipe and use write sys call to read data from pipe read till EOF
+  then display read data on screen  
+  this would happen is our application
+  
+ -----------------------------------------------------------------------------------------------------------------------
+ 
+4. Write a program which map any file in memory and read the data from that mapped file.
+	
+	to complite this task we accept file name from user and open this accepted file in read mode
+	then we get return value as file discriptor, then we call stat or lstat or fstat to get size of our file,
+	one we get file size then we check file type to perform operatioon, if file type is regular then we 
+	call to
+   
+    void *mmap(void *addr, 	<- this arg is used to from where our mem map start done by kernal by given 0 value
+    		 size_t length, <- size of our file which we want to map into memory
+    		 int prot, 		<- in which mode we are going to map such as PROT_READ or PROT_WRITE
+    		 int flags,		<- this flag is used to MAP_SHARED or MAP_PRIVATE 
+    		 int fd, 		<-  return vallue of open sys call
+    		 off_t offset); <- how much size we want to mapp into memory of file
+    		 
+    		 return value is : mmapped base address of memory 
+    
+    int munmap(void *addr,			//free mmaped base address of memory
+    		   size_t length);		//size of memory to unmapped
+ ----------------------------------------------------------------------------------------------------------------------
+ 
+5. Write a program which performs interprocess communication using the concept of message queue.
+
+	to complete this ipc msg_q operation 
+	we create to seprate process first is serveer and second is client
+	
+	server process create msg_q and send msg to msg_q 
+	client process open msg_q and read appropriat msg from msg_q
+	and dispaly
+ ----------------------------------------------------------------------------------------------------------------------

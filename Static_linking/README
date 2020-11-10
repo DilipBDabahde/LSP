@@ -1,0 +1,38 @@
+we create seperate file 
+
+headers.h 
+which contains all prototypes of function
+
+
+server.c
+which contains all function definition
+
+
+client.c
+which contains main function definition and from main 
+we call to server.c's definition
+
+
+but now we create archive of server.c using cmd
+
+$cc -g -c server.c			
+
+this above cmd create .o file which we use to make archive file
+
+$ar r libdemo.a server.o
+
+now our libdemo.a file we use to call definition 
+
+now we can remove server.o
+
+$rm server.o
+
+once libdemo.a is created then 
+
+compile main fucntion with libdemo.a
+
+$gcc 	client.c libdemo.a -o myexe -w
+$./myexe 									<---- it display result
+
+
+

@@ -1,5 +1,10 @@
 /*
 echo demo
+in this program we add logic to work like echo cmd
+compile this file : gcc myecho.c -o myEcho
+run		  : ./myEcho  This is my World
+
+output: on console is : This is my world
 */
 
 #include<stdio.h>
